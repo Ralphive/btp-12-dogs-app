@@ -39,3 +39,17 @@ function randomDog(){
     .then(response => response.json())
     .then(data => displayDog(data));
 }
+
+function addDog(){
+// POST request using fetch()
+fetch("/Dog", {  
+    method: "POST",
+    body: JSON.stringify({dog:document.getElementById("random-dog").src}),
+    headers: {
+        "Content-type": "application/json; charset=UTF-8"
+    }
+}).then(() => {
+    console.log("all good, refresh")
+    location = location
+});
+}

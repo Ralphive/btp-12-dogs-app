@@ -1,6 +1,8 @@
 /* Load NodeJS Modules */
 const express = require('express');
 const path = require('path');
+// const bodyParser = require('body-parser');
+
 
 /* Load Local Modules */
 const dogs = require('./modules/dogs');
@@ -8,6 +10,7 @@ const db = require('./modules/db');
 
 //Configure express app
 const app = express();
+app.use(express.json());
 app.use(express.static('public'));
 
 db.Connect();
@@ -50,6 +53,18 @@ app.get('/DogCollection', function (req, res) {
         res.send({msg: error});
     })
 })
+//Endpoint to Insert BPs on the Apps DB (Postgres)
+app.post('/Dog', function (req, res) {
+    db.Insert(req.body.dog)
+        .then(() => {
+            res.statusCode = 204
+            res.send();
+        })
+        .catch((error) => {
+            console.error("Error getting dog collection")
+            res.send({msg: error});
+        })
+});
 
 //EndPoint to Main page 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'views/index.html')));

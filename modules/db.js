@@ -57,16 +57,17 @@ let Select = function () {
     })
 }
 
-
-function Insert(data, callback) {
-    console.log('PG Inserting Table data '+ JSON.stringify(data))
-
-    var query = 'INSERT INTO fact12_bps(code,name, type, integrated) VALUES($1, $2, $3, $4)';
-    pgClient.query(query, [data.code,data.name,data.type, false], function (err,result){
-        if (err) {
-            callback(err)
-        }else{
-            callback(null, result)
-        }
-    });
+let Insert = function (data) {
+    return new Promise(function (resolve, reject) {    
+        const text = 'INSERT INTO dog_collection(url,breed, subbreed) VALUES($1, $2, $3)'  
+        const values =[data, process.env.DOG_BREED, process.env.DOG_SUBBREED]      
+        pgClient.query(text,values)
+        .then((res) => {
+            console.log(data+ " added to collection")
+            resolve()
+        }).catch((err) => {
+            console.error(err.stack)
+            reject()
+        });
+    })
 }
