@@ -8,8 +8,12 @@ module.exports = {
 let Get12Dogs = function () {
     //Starts the Workflow Instance. The beggining of the process
     return new Promise(function (resolve, reject) {    
+        
+        console.log(`Getting random ${process.env.DOG_SUBBREED} ${process.env.DOG_BREED} pics`)
         axios.request({
-            url: "/api/breed/setter/english/images/random/12",
+            url: "/api/breed/"
+                +process.env.DOG_BREED+"/"
+                +process.env.DOG_SUBBREED+"/images/random/12",
             method: "GET",
             baseURL: "https://dog.ceo",
         }).then((res) => {

@@ -11,4 +11,10 @@ function displayDogs(data){
         img.src = dogpic;
         container.appendChild(img);
     });
+    
+    container = document.getElementById("dog-container");
+    var img = new Image();
+    img.src = data[1];
+    container.appendChild(img);
+
 }

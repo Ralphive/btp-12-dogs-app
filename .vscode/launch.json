@@ -13,7 +13,8 @@
             ],
             "program": "${workspaceFolder}/app.js",
             "env": {
-                "DOG_TYPE": "english",
+                "DOG_BREED": "setter",
+                "DOG_SUBBREED": "english",
             }
         }
     ]
