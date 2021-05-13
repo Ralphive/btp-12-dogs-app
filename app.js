@@ -11,7 +11,16 @@ app.use(express.static('public'));
 
 //EndPoint to Retrieve Environment Variables
 app.get('/Environment', function (req, res) {
-    res.send("RETURN ENVIRONMENT VARIABLES");
+    console.log(process.env)
+    var data = {
+        DOG_BREED: process.env.DOG_BREED,
+        DOG_SUBBREED: process.env.DOG_SUBBREED,
+        CF_INSTANCE_INDEX: (process.env.CF_INSTANCE_INDEX * 1) + 1,
+        HOME: process.env.HOME
+    }
+    res.statusCode = 200
+    res.setHeader('Content-Type', 'application/json');
+    res.send(data);
 })
 
 //EndPoint to Retrieve Environment Variables

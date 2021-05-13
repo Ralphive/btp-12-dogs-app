@@ -1,6 +1,11 @@
 fetch('/Dogs')
-  .then(response => response.json())
-  .then(data => displayDogs(data));
+    .then(response => response.json())
+    .then(data => displayDogs(data));
+
+fetch('/Environment')
+    .then(response => response.json())
+    .then(data => displayEnvironment(data));
+
 
 
 function displayDogs(data){
@@ -17,4 +22,15 @@ function displayDogs(data){
     img.src = data[1];
     container.appendChild(img);
 
+}
+
+function displayEnvironment(data){
+    var container = document.getElementById("environment");
+    
+    Object.keys(data).forEach(function(key){
+        var tag = document.createElement("div");
+        var text = document.createTextNode(key+" = "+data[key]);
+        tag.appendChild(text);
+        container.appendChild(tag);
+    });
 }
