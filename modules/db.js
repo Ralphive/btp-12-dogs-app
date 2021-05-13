@@ -48,9 +48,8 @@ let Connect = function () {
 let Select = function () {
     return new Promise(function (resolve, reject) {            
         pgClient.query('SELECT * FROM dog_collection')
-        .then(() => {
-            console.log(res.rows[0]) 
-            resolve(res.rows[0])
+        .then((res) => {
+            resolve(res.rows)
         }).catch((err) => {
             console.error(err.stack)
             reject()
