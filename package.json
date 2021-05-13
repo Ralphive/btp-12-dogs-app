@@ -1,0 +1,23 @@
+{
+  "name": "btp-12-dogs-app",
+  "version": "1.0.0",
+  "description": "An example of 12 factor application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ralphive/btp-12-dogs-app.git"
+  },
+  "keywords": [
+    "12",
+    "factor"
+  ],
+  "author": "@Ralphive",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Ralphive/btp-12-dogs-app/issues"
+  },
+  "homepage": "https://github.com/Ralphive/btp-12-dogs-app#readme"
+}
