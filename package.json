@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Ralphive/btp-12-dogs-app/issues"
   },
-  "homepage": "https://github.com/Ralphive/btp-12-dogs-app#readme"
+  "homepage": "https://github.com/Ralphive/btp-12-dogs-app#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
