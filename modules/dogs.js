@@ -1,11 +1,11 @@
 const axios = require('axios');
 
 module.exports = {
-    Get12Dogs: function () {
-        return (Get12Dogs());
+    GetDog: function () {
+        return (GetDog());
     }
 }
-let Get12Dogs = function () {
+let GetDog = function () {
     //Starts the Workflow Instance. The beggining of the process
     return new Promise(function (resolve, reject) {    
         
