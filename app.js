@@ -38,7 +38,7 @@ app.get('/RandomDog', function (req, res) {
     })
 })
 
-//Retrieve Dogs from app DB
+//Retrieve Dogs from this app DB
 app.get('/DogCollection', function (req, res) {
     db.Select().then((data) => {
         res.statusCode = 200
