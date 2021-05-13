@@ -4,10 +4,13 @@ const path = require('path');
 
 /* Load Local Modules */
 const dogs = require('./modules/dogs');
+const db = require('./modules/db');
 
 //Configure express app
 const app = express();
 app.use(express.static('public'));
+
+db.Connect();
 
 //EndPoint to Retrieve Environment Variables
 app.get('/Environment', function (req, res) {
@@ -22,8 +25,7 @@ app.get('/Environment', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     res.send(data);
 })
-
-//EndPoint to Retrieve Environment Variables
+//EndPoint to Retrieve Random Dog from Dog Service
 app.get('/Dogs', function (req, res) {
     dogs.Get12Dogs().then((data) => {
         res.statusCode = 200
@@ -36,7 +38,20 @@ app.get('/Dogs', function (req, res) {
     })
 })
 
+//Retrieve Dogs from app DB
+app.get('/Collection', function (req, res) {
+    db.Select().then((data) => {
+        res.statusCode = 200
+        res.setHeader('Content-Type', 'application/json');
+        res.send(data);
+    })
+    .catch((error) => {
+        console.error("Error getting dog collection")
+        res.send({msg: error});
+    })
+})
 
+//EndPoint to Main page 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'views/index.html')));
 
 var port = process.env.PORT || 8080
