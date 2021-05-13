@@ -26,7 +26,7 @@ app.get('/Environment', function (req, res) {
     res.send(data);
 })
 //EndPoint to Retrieve Random Dog from Dog Service
-app.get('/Dogs', function (req, res) {
+app.get('/RandomDog', function (req, res) {
     dogs.Get12Dogs().then((data) => {
         res.statusCode = 200
         res.setHeader('Content-Type', 'application/json');
@@ -39,7 +39,7 @@ app.get('/Dogs', function (req, res) {
 })
 
 //Retrieve Dogs from app DB
-app.get('/Collection', function (req, res) {
+app.get('/DogCollection', function (req, res) {
     db.Select().then((data) => {
         res.statusCode = 200
         res.setHeader('Content-Type', 'application/json');

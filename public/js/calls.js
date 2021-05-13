@@ -1,27 +1,32 @@
-fetch('/Dogs')
+fetch('/RandomDog')
     .then(response => response.json())
-    .then(data => displayDogs(data));
+    .then(data => displayDog(data));
+
+fetch('/DogCollection')
+    .then(response => response.json())
+    .then(data => displayDogCollection(data));
 
 fetch('/Environment')
     .then(response => response.json())
     .then(data => displayEnvironment(data));
 
 
-
-function displayDogs(data){
-    var container = document.getElementById("dogs-container");
-
-    data.forEach(dogpic => {
-        var img = new Image();
-        img.src = dogpic;
-        container.appendChild(img);
-    });
-    
-    container = document.getElementById("dog-container");
+function displayDog(data){
+    var container = document.getElementById("dog-container");
     var img = new Image();
-    img.src = data[1];
+    img.src = data[0];
     container.appendChild(img);
 
+}
+
+function displayDogCollection(data){
+    var container = document.getElementById("dogs-container");
+
+    data.forEach(dog => {
+        var img = new Image();
+        img.src = dog.url;
+        container.appendChild(img);
+    });
 }
 
 function displayEnvironment(data){

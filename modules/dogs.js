@@ -13,7 +13,7 @@ let Get12Dogs = function () {
         axios.request({
             url: "/api/breed/"
                 +process.env.DOG_BREED+"/"
-                +process.env.DOG_SUBBREED+"/images/random/",
+                +process.env.DOG_SUBBREED+"/images/random/1",
             method: "GET",
             baseURL: "https://dog.ceo",
         }).then((res) => {
