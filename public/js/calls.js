@@ -1,6 +1,4 @@
-fetch('/RandomDog')
-    .then(response => response.json())
-    .then(data => displayDog(data));
+randomDog()
 
 fetch('/DogCollection')
     .then(response => response.json())
@@ -12,11 +10,7 @@ fetch('/Environment')
 
 
 function displayDog(data){
-    var container = document.getElementById("dog-container");
-    var img = new Image();
-    img.src = data[0];
-    container.appendChild(img);
-
+    document.getElementById("random-dog").src = data[0];
 }
 
 function displayDogCollection(data){
@@ -38,4 +32,10 @@ function displayEnvironment(data){
         tag.appendChild(text);
         container.appendChild(tag);
     });
+}
+
+function randomDog(){
+    fetch('/RandomDog')
+    .then(response => response.json())
+    .then(data => displayDog(data));
 }
