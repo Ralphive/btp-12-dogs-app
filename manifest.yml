@@ -1,0 +1,9 @@
+---
+applications:
+- name: btp-12-dogs
+  memory: 128m
+  instances: 1
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack.git
+  env:
+    DOG_BREED: setter
+    DOG_SUBBREED: english
