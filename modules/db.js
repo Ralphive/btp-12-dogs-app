@@ -24,7 +24,8 @@ if (process.env.VCAP_SERVICES) {
     if(vcap.hasOwnProperty('postgresql-db')){
         //Postgresql on CloudFoundry services
         console.log("PostgresSQL found in VCAP Services")
-        credentials = vcap['postgresql-db'][0].credentials.uri
+        credentials = pgVcapCredentials(vcap['postgresql-db'][0].credentials)
+        console.log("Credentials from PG Extracted")
     }else{
         console.log("No PostgresSQL found in VCAP Services")
     }
@@ -70,4 +71,18 @@ let Insert = function (data) {
             reject()
         });
     })
+}
+
+function pgVcapCredentials(credentials){
+    return {
+        database: credentials.dbname,
+        host: credentials.hostname,
+        port: credentials.port,
+        user: credentials.username,
+        password: credentials.password,
+        ssl:{
+            ca:credentials.sslrootcert,
+            cert: credentials.sslcert
+        }
+    }
 }
