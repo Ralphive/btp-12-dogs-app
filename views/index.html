@@ -14,13 +14,16 @@
             <h2>Environment</h1>
         </div>
     </div>
-    <h2>Random Dog</h1>
-    <div class="dog-container" id="dog-container">
+    <div class="random-dog-div">
+        <h2>Random Dog</h2>
+        <button class="button" onclick="randomDog()">Next</button>
+        <button class="button" onclick="addDog()">Add</button> 
+        <div class="dog-container" id="dog-container">
+            <img id="random-dog" src="" alt="">
+        </div>
+
         
-        <img id="random-dog" src="" alt="">
     </div>
-    <button onclick="randomDog()">Next</button>
-    <button onclick="addDog()">Add</button>
     
     <h2>Dog Collection (From Database)</h2>
     <div class="dogs-container" id="dogs-container">

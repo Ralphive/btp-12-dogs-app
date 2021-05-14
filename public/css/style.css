@@ -1,15 +1,7 @@
-.dog-container{
-    border: 3px solid coral;
-    width: 400px;
-    height: 400px;
-    background: #d4d0c8;
-    line-height: 400px;
-    text-align: center;
-}
 .dog-container img {
     max-width:400px;
     max-height:400px;
-    vertical-align: middle;
+    /* vertical-align: middle; */
 }
 
 .dogs-container{
@@ -20,4 +12,29 @@
 
 .dogs-container img{
     width: 100%;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: 1px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+  }
+
+.button:hover {
+    cursor:pointer;
+    opacity:75%;
+}
+
+.random-dog-div{
+    /* background-color: aqua;
+    flex-wrap: wrap;
+    align-content: center; */
+    text-align: center;
+
 }
