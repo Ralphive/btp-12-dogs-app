@@ -53,6 +53,6 @@ fetch("/Dog", {
     }
 }).then(() => {
     console.log("all good, refresh")
-    location = location
+    location.reload()
 });
 }
