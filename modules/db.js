@@ -21,19 +21,29 @@ var vcap = null;
 
 //Check where the PostgreSQL instance will come from. 
 //From CF BackingServiecs or a local PG (credentials = null)
-console.log("Connecting to PostgresSQL...")
+console.log("Looking for PostgresSQL credentials...")
 if (process.env.VCAP_SERVICES) {
     vcap = JSON.parse(process.env.VCAP_SERVICES);
     if(vcap.hasOwnProperty('postgresql-db')){
-        //Postgresql on CloudFoundry services
         console.log("PostgresSQL found in VCAP Services")
-        credentials = pgVcapCredentials(vcap['postgresql-db'][0].credentials)
-        console.log("Credentials from PG Extracted")
+        
+        const vcapPG = vcap['postgresql-db'][0].credentials
+        
+        credentials = {
+                        database: vcapPG.dbname,
+                        host: vcapPG.hostname,
+                        port: vcapPG.port,
+                        user: vcapPG.username,
+                        password: vcapPG.password,
+                        ssl:{
+                            ca:vcapPG.sslrootcert,
+                            cert: vcapPG.sslcert
+                        }
+                    }
     }else{
         console.log("No PostgresSQL found in VCAP Services")
     }
 }
-
 var pgClient = new pg.Client(credentials)
 
 let Connect = function () {
