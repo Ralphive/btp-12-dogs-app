@@ -1,20 +1,22 @@
 /* Load NodeJS Modules */
+console.log('Loading node modules')
 const express = require('express');
 const path = require('path');
-// const bodyParser = require('body-parser');
-
-
 /* Load Local Modules */
 const dogs = require('./modules/dogs');
 const db = require('./modules/db');
 
+console.log('Configuring Express App')
 //Configure express app
 const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 
+//Connect to the DB
 db.Connect();
 
+
+//API
 //EndPoint to Retrieve Environment Variables
 app.get('/Environment', function (req, res) {
     console.log(process.env)
@@ -69,8 +71,9 @@ app.post('/Dog', function (req, res) {
 //EndPoint to Main page 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'views/index.html')));
 
+//Starting Server
 var port = process.env.PORT || 8080
 
 app.listen(port, function () {
-  console.log('Example app listening on port ' + port);
+  console.log('12 dogs app listening on port ' + port);
 });
