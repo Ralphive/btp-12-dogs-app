@@ -15,7 +15,8 @@ function displayDog(data){
 
 function displayDogCollection(data){
     var container = document.getElementById("dogs-container")
-    data.forEach(dog => {
+    
+    data.slice().reverse().forEach(dog => {
         var img = new Image();
         img.src = dog.url;
         img.classList.add("img-fluid");
