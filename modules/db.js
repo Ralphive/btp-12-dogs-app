@@ -3,6 +3,9 @@ module.exports = {
     Connect: function (response) {
         return (Connect());
     },
+    Disconnect: function (response) {
+        return (Disconnect());
+    },
     Select: function (response) {
         return (Select(response));
     },
@@ -38,6 +41,20 @@ let Connect = function () {
         pgClient.connect()
         .then(() => {
             console.log('connected to Postgresql')
+            resolve()
+        }).catch((err) => {
+            console.error(err)
+            reject()
+        });
+    })
+}
+let Disconnect = function () {
+    return new Promise(function (resolve, reject) {            
+        
+        pgClient.di
+        pgClient.end()
+        .then(() => {
+            console.log('Disconnected from Postgresql')
             resolve()
         }).catch((err) => {
             console.error(err)
