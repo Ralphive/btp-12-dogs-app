@@ -14,12 +14,15 @@ function displayDog(data){
 }
 
 function displayDogCollection(data){
-    var container = document.getElementById("dogs-container");
-
+    var container = document.getElementById("dogs-container")
     data.forEach(dog => {
         var img = new Image();
         img.src = dog.url;
-        container.appendChild(img);
+        img.classList.add("img-fluid");
+        var div = document.createElement("div");
+        div.className = "p-0 col-md-2 col-4";
+        div.appendChild(img)
+        container.appendChild(div);
     });
 }
 
