@@ -1,6 +1,6 @@
 ---
 applications:
-- name: btp-12-dogs
+- name: 12-dogs
   memory: 128m
   instances: 1
   buildpack: https://github.com/cloudfoundry/nodejs-buildpack.git
