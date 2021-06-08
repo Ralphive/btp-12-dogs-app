@@ -19,6 +19,7 @@ const pg = require("pg")
 var credentials = null;
 var vcap = null;
 
+//IV Backing Services- Treat backing services as attached resources
 //Check where the PostgreSQL instance will come from. 
 //From CF BackingServiecs or a local PG (credentials = null)
 console.log("Looking for PostgresSQL credentials...")
