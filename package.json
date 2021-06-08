@@ -21,6 +21,8 @@
     "url": "https://github.com/Ralphive/btp-12-dogs-app/issues"
   },
   "homepage": "https://github.com/Ralphive/btp-12-dogs-app#readme",
+ 
+  "//": "II Dependencies - Explicitly declare and isolate dependencies",
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
