@@ -6,7 +6,6 @@ module.exports = {
     }
 }
 let GetDog = function () {
-    //Starts the Workflow Instance. The beggining of the process
     return new Promise(function (resolve, reject) {    
         
         // III - Store config in environment

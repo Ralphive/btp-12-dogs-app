@@ -71,14 +71,16 @@ app.post('/Dog', function (req, res) {
 //EndPoint to Main page 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'views/index.html')));
 
-//Starting Server
-var port = process.env.PORT || 8080
 
+// VII. Port binding
+// Export services via port binding
+var port = process.env.PORT || 8080
 const server = app.listen(port, function () {
   console.log('12 dogs app listening on port ' + port);
 });
 
-// Handles GracefulShutdown
+// IX. Disposability
+// Maximize robustness with fast startup and graceful shutdown
 const startGracefulShutdown = () => {
     console.log('Starting shutdown...');
     db.Disconnect().then(server.close(function(){
