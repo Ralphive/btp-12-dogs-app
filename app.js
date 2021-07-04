@@ -67,6 +67,18 @@ app.post('/Dog', function (req, res) {
         })
 });
 
+app.get('/DogInitialise', function (req, res) {
+    db.Initialise().then((data) => {
+        res.statusCode = 200
+        res.setHeader('Content-Type', 'application/json');
+        res.send(data);
+    })
+    .catch((error) => {
+        console.error("Error initialising dog collection")
+        res.send({msg: error});
+    })
+});
+
 //EndPoint to Main page 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'views/index.html')));
 

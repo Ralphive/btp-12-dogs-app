@@ -23,11 +23,16 @@ cf set-env 12-dogs DOG_BREED spaniel
 cf set-env 12-dogs DOG_SUBBREED cocker
 ```
 
-**STEP 4 ** - Create the DB service Instance
+**STEP 4** - Create the DB service Instance.
+> Syntax: cf create-service `<Service Name> <Service Plan> <Service Instance Name>`
+
+> Syntax: cf bind-service `<application name> <Service Instance Name>`
+
 ```bash
-cf marketplace
-** TO DO ** 
+cf create-service postgresql-db trial pgdbdogs
+cf bind-service 12-dogs pgdbdogs
 ```
+> Note: For SAP BTP Trial account, you are ONLY entitled to ONE Postgres database service instance. Thus, if you already have an existing service instance, this step will fail. You can workaround by manually bind your existing PG service instance to 12-dogs app.
 
 **STEP 5** - Restart the app
 ```bash

@@ -8,6 +8,8 @@ fetch('/Environment')
     .then(response => response.json())
     .then(data => displayEnvironment(data));
 
+fetch('/DogInitialise')
+.then(response => response.json());
 
 function displayDog(data){
     document.getElementById("random-dog").src = data[0];

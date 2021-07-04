@@ -11,6 +11,9 @@ module.exports = {
     },
     Insert: function (data, response) {
         return (Insert(data, response));
+    },
+    Initialise: function (response) {
+        return (Initialise());
     }
 }
 
@@ -98,6 +101,20 @@ let Insert = function (data) {
             console.error(err.stack)
             reject()
         });
+    })
+}
+
+let Initialise = function (data) {
+    return new Promise(function (resolve, reject) {
+        const text = 'CREATE TABLE IF NOT EXISTS dog_collection (url varchar(256) NOT NULL primary key, breed varchar(256) NOT NULL, subbreed varchar(256) NOT NULL)'
+        pgClient.query(text)
+            .then((res) => {
+                console.log("Postgresql table dog_collection initialised.")
+                resolve()
+            }).catch((err) => {
+                console.error(err.stack)
+                reject()
+            });
     })
 }
 
