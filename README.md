@@ -4,7 +4,7 @@
 ## Description  
 Sample [12-factor app](https://12factor.net/) implementation to run on SAP Business Technology Platform (cloud foundry)
 
-This application can be deployed also on a [Local Machine (for development purposes)](README-local.md)
+This application can be deployed also on a Local Machine (for development purposes)
 
 ## Requirments
 *  [Install the Cloud Foundry CLI](https://developers.sap.com/tutorials/cp-cf-download-cli.html)
