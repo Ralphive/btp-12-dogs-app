@@ -24,7 +24,7 @@
  
   "//": "II Dependencies - Explicitly declare and isolate dependencies",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "express": "^4.17.1",
     "pg": "^8.6.0"
   }
