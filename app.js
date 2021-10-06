@@ -21,7 +21,6 @@ db.Connect().catch((err) => {
 //API
 //EndPoint to Retrieve Environment Variables
 app.get('/Environment', function (req, res) {
-    console.log(process.env)
     var data = {
         DOG_BREED: process.env.DOG_BREED,
         DOG_SUBBREED: process.env.DOG_SUBBREED,

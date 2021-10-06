@@ -2,10 +2,9 @@
 [![License: Apache2](https://img.shields.io/badge/License-Apache2-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Description  
-Sample [12-factor app](https://12factor.net/) 
-It also shows how to implement a persistence (PostgreSQL). 
+Sample [12-factor app](https://12factor.net/) implementation to run on SAP Business Technology Platform (cloud foundry)
 
-This application can be deployed also on a [Local Machine (for development purposes)](README-local.md)
+This application can be deployed also on a Local Machine (for development purposes)
 
 ## Requirments
 *  [Install the Cloud Foundry CLI](https://developers.sap.com/tutorials/cp-cf-download-cli.html)
