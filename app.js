@@ -13,8 +13,10 @@ app.use(express.json());
 app.use(express.static('public'));
 
 //Connect to the DB
-db.Connect();
-
+db.Connect().catch((err) => {
+    console.log("DB not connected")
+    console.error(err)
+})
 
 //API
 //EndPoint to Retrieve Environment Variables

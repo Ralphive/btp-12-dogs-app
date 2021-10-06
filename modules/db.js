@@ -54,8 +54,8 @@ let Connect = function () {
             console.log('connected to Postgresql')
             resolve()
         }).catch((err) => {
-            console.error(err)
-            reject()
+            console.log("Error connecting to Postgresql ")
+            reject(err)
         });
     })
 }
